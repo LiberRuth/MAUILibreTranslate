@@ -3,4 +3,5 @@
 
 
 # Screenshots
-![initial](https://user-images.githubusercontent.com/LiberRuth/MAUILibreTranslate/master/Screenshots/Img1.PNG)
+![Img1](https://user-images.githubusercontent.com/124418235/219943211-2f0f6dd5-c739-40f9-b4a9-e698a7cb8d99.PNG)
+
