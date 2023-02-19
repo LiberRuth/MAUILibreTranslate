@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUILibreTranslate.MainPage">
+
+    
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Grid>
+                <Frame BackgroundColor="Transparent" Margin="0,15,0,0">
+                    <StackLayout>
+                        <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                            <Button HeightRequest="40" MaximumWidthRequest="65" Text="📋" Clicked="Button_inCopy"/>
+                            <Button HeightRequest="40" MaximumWidthRequest="65" Text="🗑" Clicked="Button_inClear"/>
+                        </HorizontalStackLayout>
+                        <Label Text="입력" Margin="3,1,0,0"></Label>
+                        <Editor x:Name="ineditor"
+                                Keyboard="Chat"
+                                Placeholder=""
+                                HeightRequest="200"
+                                MaxLength="2000"
+                                AutoSize="TextChanges"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Picker x:Name="inTranslate" 
+                        Margin="0,5,0,0"
+                        ItemsSource="{Binding language_list}"
+                        ItemDisplayBinding="{Binding language}"
+                        SelectedIndex="1"
+                        SelectedItem="{Binding inLanguage}">
+                </Picker>
+
+                <Button x:Name="CounterBtn"
+                        Text="번역"          
+                        HorizontalOptions="Center"
+                        WidthRequest="100"
+                        Clicked="TranslationBtn_Clicked"/>
+                <Picker x:Name="enTranslate" 
+                        Margin="0,5,0,0"
+                        ItemsSource="{Binding language_list}"
+                        ItemDisplayBinding="{Binding language}" 
+                        SelectedItem="{Binding enLanguage}" />
+            </HorizontalStackLayout>
+
+            <Grid>
+                <Frame BackgroundColor="Transparent" Margin="0,0,0,5">
+                    <StackLayout>
+                        <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                            <Button HeightRequest="40" MaximumWidthRequest="65" Text="📋" Clicked="Button_enCopy"/>
+                            <Button HeightRequest="40" MaximumWidthRequest="65" Text="🗑" Clicked="Button_enClear"/>
+                        </HorizontalStackLayout>
+                        <Label Text="출력" Margin="3,1,0,0"></Label>
+                        <Editor x:Name="eneditor"
+                                Keyboard="Chat"
+                                IsReadOnly="true"
+                                Placeholder="번역"
+                                HeightRequest="200"
+                                MaxLength="2000" 
+                                AutoSize="TextChanges"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <Picker x:Name="server_list" 
+                        Margin="0,5,0,0"
+                        ItemsSource="{Binding instance_list}"
+                        ItemDisplayBinding="{Binding Name}" 
+                        SelectedItem="{Binding instances}" />
+            <Label Text="LibreTranslate" HorizontalOptions="Center" Margin="0,0,0,30"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
