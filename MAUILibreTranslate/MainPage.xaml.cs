@@ -103,6 +103,11 @@ public partial class MainPage : ContentPage
 
     private async void TranslationBtn_Clicked(object sender, EventArgs e)
     {
+        if (ineditor.Text == null || ineditor.Text == " ")
+        {
+            return;
+        }
+
         Debug.WriteLine(server_list.SelectedItem.ToString());
         translateSharp.server = server_list.SelectedItem.ToString();
         await SecureStorage.Default.SetAsync("server_Index", server_list.SelectedIndex.ToString());
