@@ -67,11 +67,13 @@
                     </StackLayout>
                 </Frame>
             </Grid>
-            <Picker x:Name="server_list" 
-                        Margin="0,5,0,0"
+            <HorizontalStackLayout HorizontalOptions="Start" Spacing="5" Margin="0,5,0,0">
+                <Label Text="Server:" Margin="0,5,0,0"/>
+                <Picker x:Name="server_list"
                         ItemsSource="{Binding instance_list}"
                         ItemDisplayBinding="{Binding Name}" 
                         SelectedItem="{Binding instances}" />
+            </HorizontalStackLayout>
             <Label Text="LibreTranslate" HorizontalOptions="Center" Margin="0,0,0,30"/>
         </VerticalStackLayout>
     </ScrollView>
