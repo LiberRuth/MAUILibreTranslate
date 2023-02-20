@@ -39,10 +39,17 @@ namespace MAUILibreTranslate
                 streamWriter.Flush();
                 streamWriter.Close();
 
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                try 
                 {
-                    result = streamReader.ReadToEnd();
+                    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                    {
+                        result = streamReader.ReadToEnd();
+                    }
+                }
+                catch(Exception ex) 
+                {
+                    result = "{\"translatedText\":\"Error\"}";
                 }
             }
             JObject obj = JObject.Parse(result);
