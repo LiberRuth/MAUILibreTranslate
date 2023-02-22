@@ -59,7 +59,7 @@
                         <Label Text="출력" Margin="3,1,0,0"></Label>
                         <Editor x:Name="eneditor"
                                 Keyboard="Chat"
-                                IsReadOnly="true"
+                                IsReadOnly="False"
                                 Placeholder="번역"
                                 HeightRequest="200"
                                 MaxLength="2000" 
